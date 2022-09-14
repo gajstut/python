@@ -1,0 +1,18 @@
+import json
+from io import StringIO
+
+# Opening JSON file
+f = open('data.json')
+
+# returns JSON object as
+# a dictionary
+data = json.load(f)
+
+# Closing file
+f.close()
+
+
+in_json = StringIO(data)
+
+result = [json.dumps(record) for record in json.load(in_json)]  # the only significant line to convert the JSON to the desired format
+print('\n'.join(result))
